@@ -103,7 +103,8 @@ if prompt:
 
         full_response = ""
         for response in custom_chain.stream(
-            {"input": prompt, "chat_history": chat_history}
+            {"input": "반드시 한국어로 자세히 설명하고 모르는 내용은 모르겠다고 대답해줘. (단 100자 이내로) \n" + prompt,
+             "chat_history": chat_history}
         ):
             if "output" in response:
                 full_response += response["output"]
